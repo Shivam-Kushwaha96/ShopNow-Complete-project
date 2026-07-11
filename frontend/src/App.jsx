@@ -15,7 +15,7 @@ import AdminUsers from "./pages/admin/AdminUsers";
 import Orders from "./pages/Orders.jsx";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProductDetail from "./pages/ProductDetail";
-import Checkout from "./pages/Checkout";
+import Checkout from "./pages/Checkout.jsx";
 
 function App() {
   const { showCart, setShowCart } = useCart();
