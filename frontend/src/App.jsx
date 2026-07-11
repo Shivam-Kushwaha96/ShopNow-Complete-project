@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useCart } from "./context/CartContext.jsx";
+import { useCart } from "./context/CartContext";
 import Cart from "./components/Cart";
 
 import Home from "./pages/Home";
@@ -12,10 +12,10 @@ import Dashboard from "./pages/admin/Dashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminUsers from "./pages/admin/AdminUsers";
-import Orders from "./pages/Orders.jsx";
+import Orders from "./pages/Orders";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProductDetail from "./pages/ProductDetail";
-import Checkout from "./pages/Checkout.jsx";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const { showCart, setShowCart } = useCart();
