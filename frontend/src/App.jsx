@@ -13,7 +13,6 @@ import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminUsers from "./pages/admin/AdminUsers";
 import Orders from "./pages/Orders.jsx";
-import AdminDelivery from "./pages/admin/AdminDelivery";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
@@ -38,7 +37,6 @@ function App() {
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="/admin/users" element={<AdminUsers />} />
-        <Route path="/admin/delivery" element={<AdminDelivery />} />
         <Route path="/delivery" element={<DeliveryDashboard />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout />} />
