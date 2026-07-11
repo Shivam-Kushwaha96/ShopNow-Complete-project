@@ -16,7 +16,7 @@ import Orders from "./pages/Orders";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProductDetail from "./pages/ProductDetail";
 import Home from "./pages/Home";
-import { Checkout } from "./pages/Checkout";
+import { Checkout } from "./pages/checkout";
 
 function App() {
   const { showCart, setShowCart } = useCart();
