@@ -17,6 +17,7 @@ import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProductDetail from "./pages/ProductDetail";
 import Home from "./pages/Home";
 import { Checkout } from "./pages/checkout";
+import AdminDelivery from "./pages/admin/adminDelivery";
 
 function App() {
   const { showCart, setShowCart } = useCart();
@@ -41,6 +42,7 @@ function App() {
         <Route path="/delivery" element={<DeliveryDashboard />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/admin/delivery" element={<AdminDelivery/>} />
       </Routes>
 
       {/* Cart Sidebar */}
