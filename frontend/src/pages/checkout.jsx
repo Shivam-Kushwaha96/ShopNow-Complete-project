@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const Checkout = () => {
+export const Checkout = () => {
   const { user, token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const location = useLocation();
@@ -345,5 +345,3 @@ const Checkout = () => {
     </div>
   );
 };
-
-export default Checkout;
