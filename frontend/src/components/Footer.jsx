@@ -20,8 +20,8 @@ const Footer = () => {
           <h3 className="text-white font-bold mb-4">Contact</h3>
           <ul className="space-y-2 text-sm">
             <li>📧 support@shopnow.com</li>
-            <li>📞 +91 98765 43210</li>
-            <li>📍 Delhi, India</li>
+            <li>📞 +91 9696161653</li>
+            <li>📍 Karwi, India</li>
           </ul>
         </div>
       </div>

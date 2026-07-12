@@ -22,16 +22,20 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = async () => {
-    try {
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}api/products`);
-      setProducts(data);
-    } catch (error) {
-      toast.error("Products load nahi hue!");
-    } finally {
-      setLoading(false);
-    }
-  };
+const fetchProducts = async () => {
+  try {
+    console.log("Fetching products...");
+    const { data } = await axios.get("http://localhost:5000/api/products");
+    console.log("Products data:", data);
+    setProducts(data);
+  } catch (error) {
+    console.log("Full Error:", error); // ← error.response nahi — sirf error
+    console.log("Error Message:", error.message); // ← add karo
+    toast.error("Products load nahi hue!");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleBuy = (product) => {
     if (!user) {

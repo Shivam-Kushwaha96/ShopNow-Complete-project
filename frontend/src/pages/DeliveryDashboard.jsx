@@ -46,7 +46,7 @@ const DeliveryDashboard = () => {
   const verifyOTP = async () => {
     try {
       await axios.post(
-        '${import.meta.env.VITE_SERVER_URL}/api/delivery/verify-otp',
+        `${import.meta.env.VITE_SERVER_URL}/api/delivery/verify-otp`,
         otpForm,
         { headers: { Authorization: `Bearer ${token}` } }
       );
