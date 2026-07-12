@@ -15,7 +15,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/orders", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(data);
@@ -28,7 +28,7 @@ const AdminOrders = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/orders/${id}/status`,
+      await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/orders/${id}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -42,7 +42,7 @@ const AdminOrders = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete karna chahte ho?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/orders/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Order deleted!");

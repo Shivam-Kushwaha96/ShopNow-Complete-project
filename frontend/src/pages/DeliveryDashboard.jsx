@@ -18,7 +18,7 @@ const DeliveryDashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/delivery/my-deliveries", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}api/delivery/my-deliveries`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(data);
@@ -32,7 +32,7 @@ const DeliveryDashboard = () => {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/delivery/status/${id}`,
+        `${import.meta.env.VITE_SERVER_URL}/api/delivery/status/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -46,7 +46,7 @@ const DeliveryDashboard = () => {
   const verifyOTP = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/delivery/verify-otp",
+        '${import.meta.env.VITE_SERVER_URL}/api/delivery/verify-otp',
         otpForm,
         { headers: { Authorization: `Bearer ${token}` } }
       );

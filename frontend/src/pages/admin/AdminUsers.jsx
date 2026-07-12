@@ -15,7 +15,7 @@ const AdminUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/auth/user", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/auth/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(data);
@@ -29,7 +29,7 @@ const AdminUsers = () => {
   const makeAdmin = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/auth/users/${id}/make-admin`,
+        `${import.meta.env.VITE_SERVER_URL}/api/auth/users/${id}/make-admin`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -43,7 +43,7 @@ const AdminUsers = () => {
   const makeDelivery = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/auth/users/${id}/make-delivery`,
+        `${import.meta.env.VITE_SERVER_URL}/api/auth/users/${id}/make-delivery`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -58,7 +58,7 @@ const AdminUsers = () => {
     if (!window.confirm("Delete karna chahte ho?")) return;
     try {
       await axios.delete(
-        `http://localhost:5000/api/auth/users/${id}`, // ← /api/auth/ kiya
+        `${import.meta.env.VITE_SERVER_URL}/api/auth/users/${id}`, // ← /api/auth/ kiya
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("User deleted!");

@@ -19,7 +19,7 @@ const AdminProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/products", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(data);
@@ -48,12 +48,12 @@ const AdminProducts = () => {
       }
 
       if (editProduct) {
-        await axios.put(`http://localhost:5000/api/products/${editProduct._id}`, form, {
+        await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/products/${editProduct._id}`, form, {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
         });
         toast.success("Product updated!");
       } else {
-        await axios.post("http://localhost:5000/api/products", form, {
+        await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/products`, form, {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
         });
         toast.success("Product created!");
@@ -84,7 +84,7 @@ const AdminProducts = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete karna chahte ho?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Product deleted!");

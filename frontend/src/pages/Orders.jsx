@@ -15,7 +15,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/orders/my-orders", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(data);
@@ -30,7 +30,7 @@ const Orders = () => {
     if (!window.confirm("Order cancel karna chahte ho?")) return;
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${id}/cancel`, {},
+        `${import.meta.env.VITE_SERVER_URL}/api/orders/${id}/cancel`, {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("Order cancelled!");

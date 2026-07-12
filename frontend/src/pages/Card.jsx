@@ -49,7 +49,7 @@ const Cart = ({ cartItems, setCartItems }) => {
       }));
 
       await axios.post(
-        "http://localhost:5000/api/orders",
+        `${import.meta.env.VITE_SERVER_URL}/api/orders`,
         {
           products,
           shippingAddress: {

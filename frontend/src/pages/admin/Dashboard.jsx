@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { io } from "socket.io-client";
 import AdminLayout from "./AdminLayout";
 
-const socket = io("http://localhost:5000");
+const socket = io(`${import.meta.env.VITE_SERVER_URL}`);
 
 const Dashboard = () => {
   const { token } = useSelector((state) => state.auth);
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/analytics", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/analytics`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAnalytics(data);

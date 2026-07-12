@@ -14,7 +14,7 @@ const VerifyOTP = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/verify-otp", { userId, otp });
+      await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/verify-otp`, { userId, otp });
       toast.success("Email verified successfully!");
       navigate("/login");
     } catch (error) {

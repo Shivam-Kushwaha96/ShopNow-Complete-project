@@ -51,7 +51,7 @@ export const Checkout = () => {
     setLoading(true);
     try {
       await axios.post(
-        "http://localhost:5000/api/orders",
+        `${import.meta.env.VITE_SERVER_URL}/api/orders`,
         {
           products: orderItems,
           shippingAddress: {

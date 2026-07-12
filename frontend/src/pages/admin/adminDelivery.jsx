@@ -17,10 +17,10 @@ const AdminDelivery = () => {
   const fetchData = async () => {
     try {
       const [ordersRes, boysRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/orders", {
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/api/orders`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/delivery/boys", {
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/api/delivery/boys`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -40,7 +40,7 @@ const AdminDelivery = () => {
     }
     try {
       await axios.post(
-        "http://localhost:5000/api/delivery/assign",
+        `${import.meta.env.VITE_SERVER_URL}/api/delivery/assign`,
         { orderId, deliveryBoyId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

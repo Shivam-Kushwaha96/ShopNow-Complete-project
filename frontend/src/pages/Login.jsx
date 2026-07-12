@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/login`, formData);
       dispatch(setUser({ user: data, token: data.token }));
       toast.success("Login successful!");
       navigate("/");

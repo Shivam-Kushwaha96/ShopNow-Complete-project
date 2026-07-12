@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post("http://localhost:5000/api/auth/register", formData);
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/register`, formData);
       toast.success("OTP sent to your email!");
       navigate("/verify-otp", { state: { userId: data.userId } });
     } catch (error) {
