@@ -14,7 +14,7 @@ const Products = () => {
   const [category, setCategory] = useState("All");
   const { addToCart, setShowCart } = useCart();
   const { user, token } = useSelector((state) => state.auth);
-  const navigate = useNavigate(); // ← add kiya
+  const navigate = useNavigate();
 
   const categories = ["All", "Electronics", "Clothing", "Footwear", "Accessories"];
 
@@ -25,7 +25,7 @@ const Products = () => {
 const fetchProducts = async () => {
   try {
     console.log("Fetching products...");
-    const { data } = await axios.get("http://localhost:5000/api/products");
+    const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products`);
     console.log("Products data:", data);
     setProducts(data);
   } catch (error) {
