@@ -219,7 +219,7 @@ const Orders = () => {
       </p>
     </div>
     <p className="text-yellow-500 text-xs mt-2 text-center">
-      ⚠️ Kisi aur ko share mat karein!
+      don't share anyone
     </p>
   </div>
 )}

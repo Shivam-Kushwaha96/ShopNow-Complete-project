@@ -36,7 +36,16 @@ const registerUser = async (req, res) => {
       isVerified: false,
     });
 
-    await sendOTPEmail(email, otp);
+    // ← Email ko try-catch mein wrap karo
+    try {
+      await sendOTPEmail(email, otp);
+      console.log("OTP Email sent successfully!");
+    } catch (emailError) {
+      console.log("Email Error:", emailError.message);
+      // Email fail hone ke bawajood user create ho gaya
+      // OTP console mein print karo debug ke liye
+      console.log("OTP for", email, ":", otp);
+    }
 
     res.status(201).json({
       message: "OTP sent to your email. Please verify.",
@@ -48,35 +57,6 @@ const registerUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-// ─── Verify OTP ─────────────────────────────────────────
-const verifyOTP = async (req, res) => {
-  try {
-    const { userId, otp } = req.body;
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-    if (user.otp !== otp) {
-      return res.status(400).json({ message: "Invalid OTP" });
-    }
-    if (user.otpExpiry < new Date()) {
-      return res.status(400).json({ message: "OTP expired" });
-    }
-
-    user.isVerified = true;
-    user.otp = undefined;
-    user.otpExpiry = undefined;
-    await user.save();
-
-    res.status(200).json({ message: "Email verified successfully!" });
-
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 // ─── Login ──────────────────────────────────────────────
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
